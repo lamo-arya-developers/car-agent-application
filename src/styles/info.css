@@ -1,0 +1,333 @@
+/*
+  Enkla "info"-sidor (Om oss, Kontakt, GDPR, Guide).
+*/
+
+.infoPage {
+  min-height: 100%;
+  background: #f3f4f6;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  /* Luft längst ner så text inte hamnar under sticky footer */
+  padding-bottom: 86px;
+}
+
+.infoTop {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.86);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.infoTopSpacer {
+  width: 86px; /* samma som knappens ungefärliga bredd så layouten känns balanserad */
+}
+
+.infoBack {
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.infoTitle {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.infoBody {
+  padding: 0 16px 16px;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.infoHero {
+  padding: 10px 0 14px;
+  text-align: center;
+}
+
+.infoP {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(17, 24, 39, 0.78);
+}
+
+.infoForm {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.infoLabel {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.infoInput,
+.infoTextarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+.infoInput:focus,
+.infoTextarea:focus {
+  outline: none;
+  border-color: rgba(22, 163, 74, 0.55);
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.14);
+}
+
+.infoTextarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.aboutFounders {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.aboutFounderCard {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 14px;
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+}
+
+.aboutFounderPhoto {
+  width: 86px;
+  height: 86px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.aboutFounderName {
+  font-size: 13px;
+  font-weight: 900;
+  color: #111827;
+}
+
+.aboutFounderRole {
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(17, 24, 39, 0.65);
+}
+
+.aboutCta {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.aboutCtaBtn {
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: #1e1e1e;
+  color: #ffffff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.aboutCtaBtn--ghost {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+}
+
+.aboutCtaBtn--ghost:hover {
+  background: rgba(15, 23, 42, 0.04);
+}
+
+/* Guide */
+.guideIntro {
+  margin-top: 6px;
+}
+
+.guideSteps {
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.guideStepCard {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+}
+
+.guideStepHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.guideStepNum {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 12px;
+  color: #ffffff;
+  background: #16a34a;
+}
+
+.guideStepTitle {
+  font-size: 14px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.guideStepText {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(17, 24, 39, 0.78);
+}
+
+.guideStepText + .guideStepText {
+  margin-top: 10px;
+}
+
+.guideImgWrap {
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+}
+
+.guideImg {
+  width: min(340px, 100%);
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: #ffffff;
+}
+
+.guideCaption {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(15, 23, 42, 0.68);
+  text-align: center;
+}
+
+.guideOutro {
+  margin-top: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+}
+
+.guideLogoWrap {
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+}
+
+.guideLogo {
+  width: 210px;
+  max-width: 100%;
+  height: auto;
+}
+
+.aboutArticle {
+  margin-top: 8px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 16px;
+  padding: 14px 14px 10px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+}
+
+.aboutLead {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(15, 23, 42, 0.78);
+  font-weight: 650;
+}
+
+.aboutH2 {
+  margin: 14px 0 8px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+
+.aboutH3 {
+  margin: 12px 0 8px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: rgba(15, 23, 42, 0.86);
+}
+
+.aboutList {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: rgba(15, 23, 42, 0.78);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.aboutFounderBio {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(15, 23, 42, 0.72);
+}
+
+.aboutCtaRow {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 520px) {
+  .aboutCtaRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .aboutFounderCard {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+}

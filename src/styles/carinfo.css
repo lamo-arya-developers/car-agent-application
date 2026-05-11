@@ -1,0 +1,156 @@
+/*
+  CSS för sidan "Information om bilen".
+*/
+
+.ciPage {
+  min-height: 100%;
+  background: #ffffff;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  overflow-x: hidden; /* säkerhet: inget ska kunna sticka ut horisontellt */
+  /* Luft längst ner så innehåll inte hamnar under sticky footer */
+  padding-bottom: 86px;
+}
+
+.ciTabsWrap {
+  padding: 0 16px 14px;
+}
+
+.ciBody {
+  padding: 16px;
+  display: grid;
+  place-items: center;
+}
+
+.ciCard {
+  width: min(520px, calc(100vw - 32px));
+  background: #ffffff;
+  /* Stroke: #000000 40%, weight 1 */
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  /* Shadow: x 5, y 7, blur 8, spread 4, #000000 25% */
+  box-shadow: 5px 7px 8px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ciTitle {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: #111827;
+}
+
+.ciDesc {
+  text-align: center;
+  margin-top: 6px;
+  font-size: 11px;
+  color: rgba(17, 24, 39, 0.6);
+  line-height: 1.35;
+}
+
+.ciGrid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 12px;
+}
+
+.ciField {
+  display: grid;
+  gap: 6px;
+  min-width: 0; /* viktigt i CSS-grid så innehåll inte tvingar bredd */
+}
+
+.ciLabel {
+  font-size: 11px;
+  font-weight: 900;
+  color: #111827;
+}
+
+.ciSelect,
+.ciInput {
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  padding: 0 10px;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 12px;
+  width: 100%;
+  min-width: 0;
+}
+
+.ciInline2 {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+}
+
+.ciUnit {
+  height: 38px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 900;
+  background: #ffffff;
+  color: rgba(17, 24, 39, 0.75);
+}
+
+.ciCenterRow {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.ciNextInspect {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.ciOwners {
+  display: grid;
+  grid-template-columns: 38px 1fr 38px;
+  gap: 10px;
+  align-items: center;
+}
+
+.ciOwnerBtn {
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  background: #ffffff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.ciOwnerVal {
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+
+.ciBottom {
+  padding: 16px;
+}
+
+.ciBottomInner {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Mobil: 1 kolumn så inget sticker ut */
+@media (max-width: 420px) {
+  .ciGrid {
+    grid-template-columns: 1fr;
+  }
+}
+

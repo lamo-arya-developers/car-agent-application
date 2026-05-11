@@ -1,0 +1,212 @@
+/*
+  CSS för Analys-sidan (efter köpsprofilen).
+  Nybörjar-tänk: vi bygger en enkel header med tabs och ett "kort" i mitten.
+*/
+
+.anPage {
+  min-height: 100%;
+  background: #ffffff;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  overflow-x: hidden;
+  /* Luft längst ner så innehåll inte hamnar under sticky footer */
+  padding-bottom: 86px;
+}
+
+.anTabsWrap {
+  padding: 0 16px 14px;
+}
+
+.anTabs {
+  max-width: 520px;
+  margin: 0 auto;
+  background: #eeeeee;
+  border-radius: 18px;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+
+.anTab {
+  height: 34px;
+  border-radius: 16px;
+  border: 0;
+  background: transparent;
+  font-weight: 800;
+  font-size: 12px;
+  cursor: pointer;
+  color: rgba(17, 24, 39, 0.82);
+}
+
+.anTab--active {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.anBody {
+  padding: 16px;
+  display: grid;
+  place-items: center; /* centrerar kortet horisontellt + vertikalt i detta område */
+  min-height: 0; /* viktigt i CSS grid så centreringsytan kan krympa på små skärmar */
+}
+
+.anCard {
+  /* Mobilanpassning: aldrig bredare än skärmen */
+  width: min(520px, calc(100vw - 32px));
+  background: #ffffff;
+  /* Stroke: #000000 40%, weight 1 */
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  /* Shadow (som innan): x 5, y 7, blur 8, spread 4, #000000 25% */
+  box-shadow: 5px 7px 8px 4px rgba(0, 0, 0, 0.25);
+}
+
+.anCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.anStep {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  background: #16a34a;
+}
+
+.anTitle {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.anHint {
+  font-size: 12px;
+  color: rgba(17, 24, 39, 0.65);
+  margin-bottom: 10px;
+}
+
+.anRegRow {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+.anFlag {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  background: #1d4ed8;
+  color: #ffffff;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+}
+
+.anInput {
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  padding: 0 12px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 100%;
+  min-width: 0;
+}
+
+.anDivider {
+  position: relative;
+  margin: 12px 0;
+  display: grid;
+  place-items: center;
+}
+
+.anDividerLine {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.anDividerBubble {
+  position: absolute;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: rgba(17, 24, 39, 0.6);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.anSmallBtn {
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  width: 100%;
+}
+
+.anBottom {
+  padding: 16px;
+}
+
+.anBottomInner {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Meny (hamburger) */
+.anMenuOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 30;
+}
+
+.anMenuPanel {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  width: min(260px, calc(100vw - 24px));
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  padding: 8px;
+  z-index: 40;
+}
+
+.anMenuItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 10px;
+  border-radius: 12px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 800;
+  color: #111827;
+  text-align: left;
+}
+
+.anMenuItem:hover {
+  background: rgba(17, 24, 39, 0.06);
+}
+
