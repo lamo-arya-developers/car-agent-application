@@ -1,0 +1,86 @@
+/*
+  CSS för Login-sidan.
+  Nybörjar-tänk: här beskriver vi "layouten" för sidan (bakgrund, centrering, spacing).
+*/
+
+.loginPage {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+  /* Luft längst ner så innehåll inte hamnar under sticky footer */
+  padding-bottom: 110px;
+
+  /* Bakgrundsbild över hela skärmen */
+  /* Nybörjar-tänk: default = mobil-bilden */
+  background-image: var(--bg-mobile);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Nybörjar-tänk: när skärmen är större byter vi till desktop-bilden */
+@media (min-width: 768px) {
+  .loginPage {
+    background-image: var(--bg-desktop);
+  }
+}
+
+.loginCard {
+  display: grid;
+  gap: 14px;
+}
+
+.loginLogoWrap {
+  display: grid;
+  place-items: center;
+  margin-bottom: 6px;
+}
+
+.loginLogo {
+  width: 190px;
+  max-width: 70%;
+  height: auto;
+}
+
+.loginActions {
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.loginFooter {
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(17, 24, 39, 0.78);
+  text-align: center;
+}
+
+.loginFooter a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.loginFooter a:hover {
+  text-decoration: underline;
+}
+
+.googleButtonInner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.googleBadge {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(17, 24, 39, 0.16);
+  font-weight: 800;
+  font-size: 12px;
+}
+

@@ -1,0 +1,220 @@
+{
+  "auth": {
+    "users": [
+      {
+        "email": "test@test.com",
+        "password": "1234",
+        "displayName": "Testanvändare"
+      }
+    ]
+  },
+  "kopprofil": {
+    "title": "Din köpsprofil",
+    "sections": [
+      {
+        "id": "usage",
+        "number": 1,
+        "title": "Hur ska bilen användas?",
+        "type": "single",
+        "options": [
+          { "id": "commute", "label": "Pendling / vardagskörning", "hint": "T.ex. till jobb/skola" },
+          { "id": "family", "label": "Familjebil", "hint": "T.ex. barn, barnvagn, packning" },
+          { "id": "long", "label": "Långresor", "hint": "T.ex. motorväg, många mil" },
+          { "id": "leisure", "label": "Fritid / hobby", "hint": "T.ex. friluftsliv, sport" },
+          { "id": "first", "label": "Första bil", "hint": "Enkelt, tryggt, billigt" }
+        ]
+      },
+      {
+        "id": "driving",
+        "number": 2,
+        "title": "Körmönster",
+        "type": "selects",
+        "fields": [
+          {
+            "id": "dailyDistance",
+            "label": "Ungefärlig körsträcka per månad",
+            "options": [
+              "0 - 500 mil",
+              "500 - 1200 mil",
+              "1200 - 2000 mil",
+              "2000+ mil"
+            ]
+          },
+          {
+            "id": "mostDriving",
+            "label": "Mest körning",
+            "options": ["Stadskörning", "Landsväg", "Blandad körning", "Motorväg"]
+          },
+          {
+            "id": "importantFeatures",
+            "label": "Viktiga körsträckor",
+            "options": ["Både korta och långa körningar", "Främst korta", "Främst långa"]
+          }
+        ]
+      },
+      {
+        "id": "priorities",
+        "number": 3,
+        "title": "Vad är viktigast för dig?",
+        "type": "multi",
+        "options": [
+          { "id": "lowFuel", "label": "Låg bränsleförbrukning" },
+          { "id": "lowService", "label": "Låg servicekostnad" },
+          { "id": "safety", "label": "Hög driftsäkerhet" },
+          { "id": "comfort", "label": "Komfort" },
+          { "id": "space", "label": "Utrymme" },
+          { "id": "eco", "label": "Miljövänligare val" },
+          { "id": "performance", "label": "Prestanda" },
+          { "id": "automatic", "label": "Automatväxel" },
+          { "id": "awd", "label": "Fyrhjulsdrift" }
+        ]
+      },
+      {
+        "id": "budget",
+        "number": 4,
+        "title": "Budget",
+        "type": "selects",
+        "fields": [
+          {
+            "id": "priceRange",
+            "label": "Köpspris för bil",
+            "options": ["50 000 - 100 000 kr", "150 000 - 200 000 kr", "200 000 - 300 000 kr", "300 000+ kr"]
+          },
+          {
+            "id": "monthlyCost",
+            "label": "Hur månadskostnad (kr/m)",
+            "options": ["0 - 2 000 kr", "2 000 - 3 000 kr", "3 000 - 5 000 kr", "5 000+ kr"]
+          }
+        ]
+      },
+      {
+        "id": "notes",
+        "number": null,
+        "title": "Något annat vi bör veta? (valfritt)",
+        "type": "text",
+        "placeholder": "T.ex. hur många personer, lastbehov eller något annat…"
+      }
+    ]
+  },
+  "carInfo": {
+    "makes": [
+      "Alfa Romeo",
+      "Audi",
+      "BMW",
+      "Citroën",
+      "Dacia",
+      "Fiat",
+      "Ford",
+      "Honda",
+      "Hyundai",
+      "Jaguar",
+      "Jeep",
+      "Kia",
+      "Land Rover",
+      "Lexus",
+      "Mazda",
+      "Mercedes-Benz",
+      "Mini",
+      "Mitsubishi",
+      "Nissan",
+      "Opel",
+      "Peugeot",
+      "Renault",
+      "SEAT",
+      "Škoda",
+      "Subaru",
+      "Suzuki",
+      "Tesla",
+      "Toyota",
+      "Volkswagen",
+      "Volvo",
+      "Övrigt"
+    ],
+    "bodyTypes": [
+      "Sedan",
+      "Kombi",
+      "Halvkombi",
+      "SUV",
+      "Coupé",
+      "Cabriolet",
+      "MPV/Minibuss",
+      "Pickup",
+      "Skåpbil/Transport",
+      "Chassi (påbyggnad)",
+      "Roadster",
+      "Crossover",
+      "Övrigt"
+    ],
+    "fuels": [
+      "Bensin",
+      "Diesel",
+      "El",
+      "Laddhybrid (PHEV)",
+      "Hybrid (HEV)",
+      "Gas (CNG/biogas)",
+      "Etanol (E85)",
+      "Övrigt"
+    ],
+    "gearboxes": [
+      "Manuell",
+      "Automat",
+      "Steglös (CVT)",
+      "Övrigt"
+    ],
+    "months": ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
+    "years": ["2028", "2027", "2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000"],
+    "inspectYears": ["2024", "2025", "2026", "2027", "2028", "2029"]
+  },
+  "analysisMock": {
+    "ABC123": {
+      "regNumber": "ABC123",
+      "car": {
+        "title": "Volvo V60 D3",
+        "subtitle": "2017 · Diesel · Automat · 150 hk · 12 450 mil"
+      },
+      "profileMatch": {
+        "score": 78,
+        "label": "Passar din profil:",
+        "value": "Mycket bra",
+        "description": "Det här är en bil som stämmer väl överens med dina behov och prioriteringar."
+      },
+      "summary": [
+        {
+          "id": "strengths",
+          "title": "Styrkor",
+          "status": "ok",
+          "details": "Bränsleförbrukning, säkerhet, komfort, utrymme"
+        },
+        {
+          "id": "risks",
+          "title": "Risker att känna till",
+          "status": "warn",
+          "details": "Vanliga problem, kostsamma reparationer"
+        },
+        {
+          "id": "costs",
+          "title": "Ägandekostnader (beräknad)",
+          "status": "info",
+          "details": "Ca 1 850 kr/mån"
+        },
+        {
+          "id": "checks",
+          "title": "Vad du bör kontrollera",
+          "status": "info",
+          "details": "7 punkter att gå igenom innan köp"
+        },
+        {
+          "id": "environment",
+          "title": "Miljö och skatt",
+          "status": "info",
+          "details": "Euro 6, årsskatt 1 103 kr"
+        }
+      ],
+      "tip": {
+        "title": "Vår Tips",
+        "text": "Utifrån din köpsprofil (120-200 mil/mån) är låg driftkostnad i detta fall ett mycket rimligt alternativ."
+      }
+    }
+  }
+}
+

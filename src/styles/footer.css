@@ -1,0 +1,37 @@
+/*
+  Footer-styling (längst ner på sidan).
+*/
+
+.appFooter {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 12px 12px calc(12px + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.92);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.appFooterLink {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(17, 24, 39, 0.75);
+  padding: 6px 8px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.appFooterLink:hover {
+  background: rgba(17, 24, 39, 0.06);
+}
+
+.appFooterLink--active {
+  background: rgba(17, 24, 39, 0.06);
+}

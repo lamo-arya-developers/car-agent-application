@@ -1,0 +1,30 @@
+/* 
+  Global CSS (gäller hela appen).
+  Nybörjar-tänk: här lägger man "grund-styling" som ska gälla överallt
+  (t.ex. font, margin reset och en bra box-model).
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #111827;
+}
+
+a {
+  color: inherit;
+}
+

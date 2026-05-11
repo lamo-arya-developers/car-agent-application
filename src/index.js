@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+// Global och återanvändbar styling (ligger i src/styles enligt ditt önskemål)
+import './styles/global.css';
+import './styles/ui.css';
+import './styles/footer.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
