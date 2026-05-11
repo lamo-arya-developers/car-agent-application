@@ -1,0 +1,70 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build → S3 → CloudFront
+    runs-on: ubuntu-24.04
+    permissions:
+      id-token: write # Required for OIDC token exchange
+      contents: read
+
+    steps:
+      # ── 1. Checkout ─────────────────────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      # ── 2. AWS credentials via OIDC (no long-lived keys in GitHub secrets) ──
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          role-to-assume: ${{ secrets.OIDC_ROLE_ARN }}
+          aws-region: eu-north-1
+
+      # ── 3. Node.js + npm cache ───────────────────────────────────────────────
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      # ── 4. Install dependencies ──────────────────────────────────────────────
+      - name: Install dependencies
+        run: npm ci
+
+      # ── 5. Build (react-scripts outputs to build/) ───────────────────────────
+      - name: Build
+        run: npm run build
+
+      # ── 6. Upload hashed assets with a long-lived cache (1 year) ────────────
+      #    react-scripts stamps every JS/CSS/media file with a content hash, so
+      #    it is safe to cache them aggressively. index.html is handled separately.
+      - name: Sync build/ to S3 (long-cache for hashed assets)
+        run: |
+          aws s3 sync build/ s3://${{ secrets.S3_BUCKET_NAME }} \
+            --delete \
+            --exclude "index.html" \
+            --cache-control "public, max-age=31536000, immutable"
+
+      # ── 7. Upload index.html with no-cache so browsers always fetch fresh ────
+      #    This is the SPA entry-point — it must never be stale, because it
+      #    references the new hashed bundles after each deploy.
+      - name: Upload index.html (no-cache)
+        run: |
+          aws s3 cp build/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html \
+            --cache-control "no-cache, no-store, must-revalidate" \
+            --content-type "text/html"
+
+      # ── 8. Invalidate CloudFront so the new index.html is served immediately ─
+      #    Hashed assets don't need invalidation (new hash = new URL), but
+      #    index.html does because its S3 key never changes between deploys.
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.DISTRIBUTION_ID }} \
+            --paths "/index.html"
