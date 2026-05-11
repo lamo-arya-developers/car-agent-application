@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# car-agent-application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend för **Bilköpshjälpen** - en hjälpreda för dig som inte är så insatt i bilar och vill kunna analysera en specifik bil innan/under köpet.
 
-## Available Scripts
+Detta är en första exempel-prototyp utan integrerat API. All data är mock-data (se `src/mock-data/mockData.json`).
 
-In the project directory, you can run:
+## Kom igång
+
+I projektmappen kan du köra:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Startar appen i utvecklingsläge.\
+Öppna [http://localhost:3000](http://localhost:3000) i webbläsaren.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Bygger appen för produktion till `build`-mappen.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Mock-inloggning
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- E-post: `test@test.com`
+- Lösenord: `1234`
 
-### `npm run eject`
+## Mock-analys
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Slå in registreringsnummer `ABC123` på analyssidan för att se en exempelanalys.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Projektstruktur
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `src/components/` - React-komponenter (sidor + återanvändbara UI-komponenter under `ui/`)
+- `src/styles/` - CSS för respektive sida/komponent
+- `src/mock-data/mockData.json` - all mock-data
+- `src/images/` - bilder och illustrationer
+- `public/` - statiska filer (favicon, manifest, meta-taggar för länkförhandsvisning)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Status
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Detta är endast frontend. Backend och AI-analys är **inte** integrerade än - allt drivs av lokal mock-data och `localStorage` för sparade analyser.
