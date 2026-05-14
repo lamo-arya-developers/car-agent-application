@@ -1,0 +1,30 @@
+name: Deploy Frontend (prod)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-prod:
+    name: Build → S3 → CloudFront (prod)
+    runs-on: ubuntu-24.04
+    permissions:
+      id-token: write   # required for OIDC token exchange
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.OIDC_ROLE_ARN }}
+          aws-region: eu-north-1
+
+      - name: Deploy Frontend
+        uses: ./.github/actions/deploy-frontend
+        with:
+          s3_bucket_name:              ${{ secrets.S3_BUCKET_NAME }}
+          cloudfront_distribution_id:  ${{ secrets.DISTRIBUTION_ID }}
