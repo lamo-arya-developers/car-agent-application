@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - dev
 
 # ── Reusable deploy logic ──────────────────────────────────────────────────────
 # Defined once here, called for dev then prod below. Both jobs share identical
@@ -14,6 +15,7 @@ jobs:
   deploy-dev:
     name: Build → S3 → CloudFront (dev)
     runs-on: ubuntu-24.04
+    if: github.ref == 'refs/heads/dev'      # Only runs on pushes to the dev branch
     environment: dev                        # Pulls secrets from the "dev" GitHub Environment
     permissions:
       id-token: write                       # Required for OIDC token exchange
@@ -76,7 +78,7 @@ jobs:
   deploy-prod:
     name: Build → S3 → CloudFront (prod)
     runs-on: ubuntu-24.04
-    needs: deploy-dev                       # Prod is blocked until dev is green
+    if: github.ref == 'refs/heads/main'     # Only runs on pushes to the main branch
     environment: prod                       # Pulls secrets from the "prod" GitHub Environment
     permissions:
       id-token: write
